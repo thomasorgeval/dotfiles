@@ -20,7 +20,7 @@ if [ -f "Brewfile" ]; then
     brew bundle install --file=Brewfile
 else
     echo "⚠️  Brewfile non trouvé, installation manuelle..."
-    brew install git stow starship zoxide zsh-autosuggestions zsh-syntax-highlighting nvm mas
+    brew install git stow starship zoxide zsh-autosuggestions zsh-syntax-highlighting nvm mas ripgrep fd jq
     brew install --cask orbstack warp visual-studio-code spotify notion discord tailscale
     mas install 310633997  # WhatsApp
 fi

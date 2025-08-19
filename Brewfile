@@ -12,6 +12,9 @@ brew "zoxide"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 brew "nvm"
+brew "ripgrep"
+brew "fd"   # fd-find
+brew "jq"   # JSON processor
 brew "mas"  # Mac App Store CLI
 
 # Outils de développement

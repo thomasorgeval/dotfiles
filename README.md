@@ -2,7 +2,7 @@
 
 Contient les fichiers de configuration pour mon environnement de développement.
 
-## Installation
+## Installation (macOS)
 
 ### 1. Installer Homebrew
 Homebrew est le gestionnaire de paquets de macOS.  
@@ -12,24 +12,7 @@ Exécute cette commande dans ton terminal :
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### 2. Installer les paquets nécessaires
-```bash
-brew install stow git 
-
-# Prompt moderne
-brew install starship
-
-# Navigation améliorée
-brew install zoxide
-
-# Plugins zsh
-brew install zsh-autosuggestions zsh-syntax-highlighting
-
-# Outils de développement (optionnel)
-brew install kubectl docker
-```
-
-### 3. Cloner le dépôt et créer les liens symboliques
+### 2. Cloner le dépôt et lancer l'installation
 ```bash
 # Cloner le dépôt
 git clone git@github.com:thomasorgeval/dotfiles.git ~/dotfiles
@@ -44,6 +27,7 @@ Si tu souhaites mettre à jour tes dotfiles, exécute les commandes suivantes :
 ```bash
 cd ~/dotfiles
 git pull origin main
+brew bundle install --file=Brewfile
 stow .  # Re-créer les liens si nécessaire
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/config
