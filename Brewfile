@@ -21,14 +21,14 @@ brew "mas"  # Mac App Store CLI
 brew "kubectl"
 brew "docker"
 
-# Applications via Homebrew Cask
-cask "orbstack"
-cask "warp"
-cask "visual-studio-code"
-cask "spotify"
-cask "notion"
-cask "discord"
-cask "tailscale"
+# Applications via Homebrew Cask (macOS seulement)
+cask "orbstack"              # Alternative Linux: Docker (installé par le script)
+cask "warp"                   # Alternative Linux: Terminal natif (GNOME, Konsole, etc.)
+cask "visual-studio-code"     # Installé via Snap sur Linux
+cask "spotify"                # Installé via Snap sur Linux
+cask "notion"                 # Alternative Linux: Version web ou client non-officiel
+cask "discord"                # Installé via Snap sur Linux
+cask "tailscale"              # Installé via le dépôt apt sur Linux
 
-# Applications du Mac App Store (nécessite mas)
-mas "WhatsApp", id: 310633997
+# Applications du Mac App Store (macOS seulement)
+mas "WhatsApp", id: 310633997  # Alternative Linux: Version web
