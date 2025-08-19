@@ -1,0 +1,40 @@
+[user]
+	name = Thomas Orgeval
+	email = orgevalthomas@gmail.com
+
+[init]
+	defaultBranch = main
+
+[core]
+	editor = code --wait  # Ou vim, nano selon vos préférences
+	autocrlf = input
+	excludesfile = ~/.gitignore_global
+
+[push]
+	default = simple
+	autoSetupRemote = true
+
+[pull]
+	rebase = false
+
+[merge]
+	tool = vscode
+
+[diff]
+	tool = vscode
+
+[color]
+	ui = auto
+
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	visual = !gitk
+	tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[credential]
+	helper = osxkeychain
