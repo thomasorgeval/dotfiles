@@ -30,12 +30,9 @@ Si tu souhaites mettre à jour tes dotfiles, exécute les commandes suivantes :
 
 ```bash
 cd ~/dotfiles
-git pull origin main
-brew bundle install --file=Brewfile
-stow .  # Re-créer les liens si nécessaire
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/config
-source ~/.zshrc # Recharger la configuration de Zsh
+gpl # git pull
+chmod +x install.sh
+./install.sh
 ```
 
 ## Vérification

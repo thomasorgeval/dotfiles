@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder ShowStatusBar -bool true
+
+defaults write dev.warp.Warp-Stable LaunchAtLogin -bool false
+defaults write com.hnc.Discord SUEnableAutomaticChecks -bool true
+
+defaults write com.apple.dock tilesize -int 40
+defaults write com.apple.dock show-recents -bool false
+defaults write com.apple.dock showhidden -bool true
+
+defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM HH:mm"
+defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
+
+defaults write com.apple.screencapture disable-shadow -bool true
+
+mkdir -p ~/Projects ~/Screenshots
+echo "📸 Configuration des captures d'écran..."
+defaults write com.apple.screencapture location ~/Screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
+defaults write com.apple.screencapture type -string "png"
+echo "🔖 Ajout de Projects aux favoris Finder..."
+if command -v sfltool >/dev/null 2>&1; then
+    sfltool add-item com.apple.LSSharedFileList.FavoriteItems ~/Projects
+else
+    echo "Note: sfltool non disponible, ajoutez manuellement Projects aux favoris"
+fi
+
+# Ouvrir Projects dans une nouvelle fenêtre Finder par défaut
+defaults write com.apple.finder NewWindowTarget -string "PfHm"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Download/"
+
+echo "✅ Configuration terminée!"
+echo "Redémarrage des services nécessaires..."
+killall SystemUIServer  # Pour les raccourcis clavier
+killall Finder
+killall Dock

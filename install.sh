@@ -19,11 +19,7 @@ if [ -f "Brewfile" ]; then
     echo "📱 Installation des applications depuis Brewfile..."
     brew bundle install --file=Brewfile
 else
-    echo "⚠️  Brewfile non trouvé, installation manuelle..."
-    brew install git stow starship zoxide zsh-autosuggestions zsh-syntax-highlighting nvm mas ripgrep fd jq gnupg pinentry-mac git-who gh
-    brew install --cask orbstack warp visual-studio-code spotify notion discord tailscale
-    brew install --cask 1password 1password-cli google-chrome
-    mas install 310633997  # WhatsApp
+    echo "⚠️  Brewfile non trouvé..."
 fi
 
 # Créer les liens symboliques
@@ -93,6 +89,11 @@ if [ -f ~/.zshrc ]; then
     echo "♻️  Rechargement de la configuration zsh..."
     source ~/.zshrc 2>/dev/null || echo "ℹ️  Redémarrez votre terminal pour appliquer les changements"
 fi
+
+# Charger les paramètres MacOS
+echo "🍏 Configuration des paramètres MacOS..."
+chmod +x ~/.macos
+source ~/.macos || echo "ℹ️  Exécutez manuellement 'source ~/.macos' pour appliquer les paramètres"
 
 echo ""
 echo "🎉 Installation terminée !"

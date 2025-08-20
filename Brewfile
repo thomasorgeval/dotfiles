@@ -39,3 +39,4 @@ cask "tailscale"
 
 # Applications du Mac App Store (nécessite mas)
 mas "WhatsApp", id: 310633997
+mas "Amphetamine", id: 937984704
