@@ -1,5 +1,8 @@
 # Brewfile - Liste des applications à installer automatiquement
 
+brew update
+brew upgrade
+
 # Taps (dépôts supplémentaires)
 tap "homebrew/bundle"
 tap "homebrew/cask"

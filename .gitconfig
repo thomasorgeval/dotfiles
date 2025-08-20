@@ -14,13 +14,19 @@
     gpgsign = true
 
 [core]
-	editor = code --wait  # Ou vim, nano selon vos préférences
+	editor = vim
 	autocrlf = input
 	excludesfile = ~/.gitignore_global
 	hooksPath = ~/.git-hooks
 
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
 [push]
 	default = simple
+	followTags = true
 	autoSetupRemote = true
 
 [pull]
@@ -47,3 +53,6 @@
 
 [credential]
 	helper = osxkeychain
+
+[apply]
+	whitespace = fix

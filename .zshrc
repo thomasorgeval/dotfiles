@@ -32,9 +32,13 @@ eval "$(zoxide init zsh)"
 alias ll="ls -la"
 alias ..="cd .."
 alias ...="cd ../.."
+alias do="cd ~/Documents"
+alias dl="cd ~/Downloads"
+alias p="cd ~/projects"
 alias reload="source ~/.zshrc"
 
 # Git
+alias g="git"
 alias gs="git status"
 alias gl="git log --oneline --graph --decorate"
 alias gp="git push"
