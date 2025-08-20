@@ -39,6 +39,7 @@ cask "spotify"
 cask "notion"
 cask "discord"
 cask "tailscale"
+cask "linear-linear"
 
 # Applications du Mac App Store (nécessite mas)
 mas "WhatsApp", id: 310633997

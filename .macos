@@ -202,7 +202,7 @@ fi
 defaults write com.apple.dock persistent-apps -array
 
 # Add custom apps in order (check if app exists before adding)
-for dockItem in /Applications/{"Google Chrome","Discord","Visual Studio Code","Warp","OrbStack","Notion","Spotify"}.app; do
+for dockItem in /Applications/{"Google Chrome","Discord","Visual Studio Code","Warp","OrbStack","Linear","Notion","Spotify"}.app; do
   if [ -e "$dockItem" ]; then
     defaults write com.apple.dock persistent-apps -array-add \
       "<dict>
