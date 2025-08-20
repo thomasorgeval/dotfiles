@@ -16,12 +16,19 @@ brew "ripgrep"
 brew "fd"   # fd-find
 brew "jq"   # JSON processor
 brew "mas"  # Mac App Store CLI
+brew "gnupg" # GNU Privacy Guard
+brew "pinentry-mac" # GnuPG pinentry for macOS
+brew "git-who"
+brew "gh" # GitHub CLI
 
 # Outils de développement
 brew "kubectl"
 brew "docker"
 
 # Applications via Homebrew Cask
+cask "1password"
+cask "1password-cli"
+cask "google-chrome"
 cask "orbstack"
 cask "warp"
 cask "visual-studio-code"

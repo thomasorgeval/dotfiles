@@ -20,8 +20,9 @@ if [ -f "Brewfile" ]; then
     brew bundle install --file=Brewfile
 else
     echo "⚠️  Brewfile non trouvé, installation manuelle..."
-    brew install git stow starship zoxide zsh-autosuggestions zsh-syntax-highlighting nvm mas ripgrep fd jq
+    brew install git stow starship zoxide zsh-autosuggestions zsh-syntax-highlighting nvm mas ripgrep fd jq gnupg pinentry-mac git-who gh
     brew install --cask orbstack warp visual-studio-code spotify notion discord tailscale
+    brew install --cask 1password 1password-cli google-chrome
     mas install 310633997  # WhatsApp
 fi
 
@@ -40,7 +41,25 @@ if [ -d ~/.ssh ]; then
     fi
 else
     echo "⚠️  Le dossier .ssh n'existe pas encore"
+    mkdir -p ~/.ssh
+    chmod 700 ~/.ssh
 fi
+
+# Ajouter la config SSH pour utiliser 1Password comme agent
+if ! grep -q "IdentityAgent" ~/.ssh/config 2>/dev/null; then
+    echo "🛠️  Ajout de la configuration SSH pour 1Password..."
+    cat <<EOF >> ~/.ssh/config
+
+# Utiliser 1Password comme agent SSH
+Host *
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+EOF
+    chmod 600 ~/.ssh/config
+fi
+
+# Sign-in à 1Password CLI (ouverture navigateur)
+echo "🔑 Connexion au CLI 1Password..."
+op signin || echo "ℹ️  Ouvrez 1Password, allez dans Paramètres > Développeurs et activez l'agent SSH. Relancez 'op signin' si besoin."
 
 # Configuration de NVM et Node.js
 echo "🟢 Configuration de NVM et Node.js..."
@@ -81,9 +100,12 @@ echo ""
 echo "📝 Prochaines étapes :"
 echo "  - Redémarrez votre terminal"
 echo "  - Connectez-vous au Mac App Store pour WhatsApp"
+echo "  - Activez l’agent SSH dans 1Password: Préférences → Développeurs → Intégration SSH/GPG"
+echo "  - Connectez-vous à 1Password via 'op signin'"
 echo "  - Vérifiez Node.js: node --version"
 echo "  - Vérifiez la config Git: git config --global --list"
-echo "  - Vérifiez la config SSH: ssh -T git@github.com"
+echo "  - Vérifiez la config SSH: ssh-add -L"
+echo "  - Testez GitHub: ssh -T git@github.com"
 echo ""
 echo "🚀 Applications installées :"
 echo "  • OrbStack (Docker)"
@@ -94,3 +116,4 @@ echo "  • Notion"
 echo "  • Discord"
 echo "  • Tailscale"
 echo "  • WhatsApp"
+echo "  • 1Password + CLI (avec agent SSH)"

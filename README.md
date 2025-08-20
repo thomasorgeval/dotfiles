@@ -15,10 +15,14 @@ Exécute cette commande dans ton terminal :
 ### 2. Cloner le dépôt et lancer l'installation
 ```bash
 # Cloner le dépôt
-git clone git@github.com:thomasorgeval/dotfiles.git ~/dotfiles
+git clone https://github.com/thomasorgeval/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 chmod +x install.sh
 ./install.sh
+
+# Changer la remote url pour utiliser SSH
+git remote delete origin
+git remote add origin git@github.com:thomasorgeval/dotfiles.git
 ```
 
 ## Mise à jour
