@@ -1,14 +1,23 @@
 [user]
 	name = Thomas Orgeval
 	email = orgevalthomas@gmail.com
+    signingkey = E70B582E2635A01B
+    signcommits = true
 
 [init]
 	defaultBranch = main
+
+[commit]
+    gpgsign = true
+
+[tag]
+    gpgsign = true
 
 [core]
 	editor = code --wait  # Ou vim, nano selon vos préférences
 	autocrlf = input
 	excludesfile = ~/.gitignore_global
+	hooksPath = ~/.git-hooks
 
 [push]
 	default = simple

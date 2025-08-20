@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "Running Prettier..."
+prettier --check "**/*.{js,ts,html,json,css,md}"

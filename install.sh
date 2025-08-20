@@ -61,6 +61,10 @@ if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
     nvm alias default node
 
     echo "✅ Node.js $(node --version) installé et configuré"
+
+    # Installation des paquets globaux
+    echo "📦 Installation des paquets globaux Node.js..."
+    npm install -g pnpm eslint prettier
 else
     echo "⚠️  NVM non trouvé, redémarrez votre terminal et lancez 'nvm install --lts'"
 fi
