@@ -24,7 +24,7 @@ fi
 
 # Créer les liens symboliques
 echo "🔗 Création des liens symboliques..."
-stow .
+stow . --adopt
 
 # Vérifier si le dossier .ssh existe et configurer les permissions
 if [ -d ~/.ssh ]; then
@@ -40,22 +40,6 @@ else
     mkdir -p ~/.ssh
     chmod 700 ~/.ssh
 fi
-
-# Ajouter la config SSH pour utiliser 1Password comme agent
-if ! grep -q "IdentityAgent" ~/.ssh/config 2>/dev/null; then
-    echo "🛠️  Ajout de la configuration SSH pour 1Password..."
-    cat <<EOF >> ~/.ssh/config
-
-# Utiliser 1Password comme agent SSH
-Host *
-  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-EOF
-    chmod 600 ~/.ssh/config
-fi
-
-# Sign-in à 1Password CLI (ouverture navigateur)
-echo "🔑 Connexion au CLI 1Password..."
-op signin || echo "ℹ️  Ouvrez 1Password, allez dans Paramètres > Développeurs et activez l'agent SSH. Relancez 'op signin' si besoin."
 
 # Configuration de NVM et Node.js
 echo "🟢 Configuration de NVM et Node.js..."
@@ -84,12 +68,6 @@ else
     echo "⚠️  NVM non trouvé, redémarrez votre terminal et lancez 'nvm install --lts'"
 fi
 
-# Recharger la configuration zsh
-if [ -f ~/.zshrc ]; then
-    echo "♻️  Rechargement de la configuration zsh..."
-    source ~/.zshrc 2>/dev/null || echo "ℹ️  Redémarrez votre terminal pour appliquer les changements"
-fi
-
 # Charger les paramètres MacOS
 echo "🍏 Configuration des paramètres MacOS..."
 chmod +x ~/.macos
@@ -101,7 +79,7 @@ echo ""
 echo "📝 Prochaines étapes :"
 echo "  - Redémarrez votre terminal"
 echo "  - Connectez-vous au Mac App Store pour WhatsApp"
-echo "  - Activez l’agent SSH dans 1Password: Préférences → Développeurs → Intégration SSH/GPG"
+echo "  - Activez l'agent SSH dans 1Password: Préférences → Développeurs → Intégration SSH/GPG"
 echo "  - Connectez-vous à 1Password via 'op signin'"
 echo "  - Vérifiez Node.js: node --version"
 echo "  - Vérifiez la config Git: git config --global --list"

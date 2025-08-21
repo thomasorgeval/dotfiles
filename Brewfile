@@ -1,12 +1,5 @@
 # Brewfile - Liste des applications à installer automatiquement
 
-brew update
-brew upgrade
-
-# Taps (dépôts supplémentaires)
-tap "homebrew/bundle"
-tap "homebrew/cask"
-
 # Outils en ligne de commande
 brew "git"
 brew "stow"
@@ -40,7 +33,9 @@ cask "notion"
 cask "discord"
 cask "tailscale"
 cask "linear-linear"
+cask "beekeeper-studio"
 
 # Applications du Mac App Store (nécessite mas)
 mas "WhatsApp", id: 310633997
+mas "Xcode", id: 497799835
 mas "Amphetamine", id: 937984704

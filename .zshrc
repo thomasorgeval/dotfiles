@@ -15,14 +15,22 @@ setopt sharehistory hist_ignore_all_dups hist_reduce_blanks
 
 # ----- NVM (Node Version Manager) -----
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
+  \. "/opt/homebrew/opt/nvm/nvm.sh" 2>/dev/null || echo "Warning: NVM initialization failed"
+fi
+if [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]; then
+  \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" 2>/dev/null
+fi
 
 # ----- Plugins -----
-# zsh-autosuggestions
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# zsh-autosuggestions (disabled due to parse error - may be version incompatibility)
+# if [ -f "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+#   source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null || echo "Warning: zsh-autosuggestions failed to load"
+# fi
 # zsh-syntax-highlighting
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -f "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null || echo "Warning: zsh-syntax-highlighting failed to load"
+fi
 
 # ----- zoxide (better cd) -----
 eval "$(zoxide init zsh)"

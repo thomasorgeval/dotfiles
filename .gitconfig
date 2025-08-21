@@ -3,56 +3,11 @@
 	email = orgevalthomas@gmail.com
     signingkey = E70B582E2635A01B
     signcommits = true
-
 [init]
 	defaultBranch = main
-
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [commit]
-    gpgsign = true
-
-[tag]
-    gpgsign = true
-
-[core]
-	editor = vim
-	autocrlf = input
-	excludesfile = ~/.gitignore_global
-	hooksPath = ~/.git-hooks
-
-[color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
-
-[push]
-	default = simple
-	followTags = true
-	autoSetupRemote = true
-
-[pull]
-	rebase = false
-
-[merge]
-	tool = vscode
-
-[diff]
-	tool = vscode
-
-[color]
-	ui = auto
-
-[alias]
-	co = checkout
-	br = branch
-	ci = commit
-	st = status
-	unstage = reset HEAD --
-	last = log -1 HEAD
-	visual = !gitk
-	tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-
-[credential]
-	helper = osxkeychain
-
-[apply]
-	whitespace = fix
+	gpgsign = true

@@ -16,9 +16,6 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # =============================
 # General UI/UX Tweaks
 # =============================
-# Disable transparency in the menu bar and elsewhere on Yosemite
-defaults write com.apple.universalaccess reduceTransparency -bool true
-
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
@@ -142,9 +139,9 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 # Dock Preferences
 # =============================
 # Set Dock size, hide/show, minimize effect, etc.
-defaults write com.apple.dock tilesize -int 36
+defaults write com.apple.dock tilesize -int 44
 defaults write com.apple.dock show-recents -bool false
-defaults write com.apple.dock showhidden -bool true
+defaults write com.apple.dock showhidden -bool false
 defaults write com.apple.dock minimize-to-application -bool true
 defaults write com.apple.dock show-process-indicators -bool true
 defaults write com.apple.dock mineffect -string "scale"
@@ -161,11 +158,11 @@ defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM HH:mm"
 # Folders
 # =============================
 mkdir -p ~/Projects ~/Screenshots
-echo "📸 Configuration des captures d'écran..."
 
 # ==============================
 # Screenshots Configuration
 # ==============================
+echo "📸 Configuration des captures d'écran..."
 defaults write com.apple.screencapture location ~/Screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
 defaults write com.apple.screencapture include-date -bool true
@@ -202,7 +199,7 @@ fi
 defaults write com.apple.dock persistent-apps -array
 
 # Add custom apps in order (check if app exists before adding)
-for dockItem in /Applications/{"Google Chrome","Discord","Visual Studio Code","Warp","OrbStack","Linear","Notion","Spotify"}.app; do
+for dockItem in /Applications/{"Google Chrome","Discord","Visual Studio Code","Warp","OrbStack","Beekeeper Studio","Linear","Notion","Spotify"}.app; do
   if [ -e "$dockItem" ]; then
     defaults write com.apple.dock persistent-apps -array-add \
       "<dict>
