@@ -27,13 +27,12 @@ cask "1password-cli"
 cask "google-chrome"
 cask "orbstack"
 cask "warp"
-cask "visual-studio-code"
+cask "intellij-idea"
 cask "spotify"
 cask "notion"
 cask "discord"
 cask "tailscale"
 cask "linear-linear"
-cask "beekeeper-studio"
 
 # Applications du Mac App Store (nécessite mas)
 mas "WhatsApp", id: 310633997
