@@ -23,13 +23,17 @@ if [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]; then
 fi
 
 # ----- Plugins -----
-# zsh-autosuggestions (disabled due to parse error - may be version incompatibility)
-# if [ -f "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
-#   source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null || echo "Warning: zsh-autosuggestions failed to load"
-# fi
-# zsh-syntax-highlighting
-if [ -f "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
-  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null || echo "Warning: zsh-syntax-highlighting failed to load"
+# Load zsh-autosuggestions with error handling
+if [[ -r "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
+  # Set plugin variables before loading to avoid conflicts
+  export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+  export ZSH_AUTOSUGGEST_USE_ASYNC=1
+  source "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh" 2>/dev/null
+fi
+
+# Load zsh-syntax-highlighting last (Homebrew version)
+if [[ -r "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+  source "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 
 # ----- zoxide (better cd) -----
@@ -56,6 +60,10 @@ alias gc="git commit -am"
 alias gd="git diff"
 alias gb="git branch"
 alias gco="git checkout"
+alias gcb="git checkout -b"
+alias gst="git stash"
+alias gstp="git stash pop"
+alias gcl="git clone"
 
 # Outils
 alias k="kubectl"

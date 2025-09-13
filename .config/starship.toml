@@ -1,0 +1,29 @@
+# Starship configuration
+format = """
+$directory\
+$git_branch\
+$package\
+$nodejs\
+$character"""
+
+[directory]
+truncation_length = 1
+truncation_symbol = "/"
+
+[git_branch]
+format = " on [$branch](bright-purple)"
+
+[git_status]
+disabled = true
+
+[package]
+format = " [$version](bright-green)"
+display_private = true
+
+[nodejs]
+format = " via [$version](bright-blue)"
+
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"

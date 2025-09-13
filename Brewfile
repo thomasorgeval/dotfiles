@@ -20,6 +20,7 @@ brew "gh" # GitHub CLI
 # Outils de développement
 brew "kubectl"
 brew "docker"
+brew "ansible"
 
 # Applications via Homebrew Cask
 cask "1password"
@@ -33,8 +34,7 @@ cask "notion"
 cask "discord"
 cask "tailscale"
 cask "linear-linear"
+cask "raycast"
 
 # Applications du Mac App Store (nécessite mas)
-mas "WhatsApp", id: 310633997
 mas "Xcode", id: 497799835
-mas "Amphetamine", id: 937984704
