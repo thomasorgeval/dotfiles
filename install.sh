@@ -63,7 +63,7 @@ if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
 
     # Installation des paquets globaux
     echo "📦 Installation des paquets globaux Node.js..."
-    npm install -g pnpm eslint prettier
+    npm install -g eslint prettier
 else
     echo "⚠️  NVM non trouvé, redémarrez votre terminal et lancez 'nvm install --lts'"
 fi

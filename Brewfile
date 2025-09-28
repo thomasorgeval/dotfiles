@@ -21,6 +21,7 @@ brew "gh" # GitHub CLI
 brew "kubectl"
 brew "docker"
 brew "ansible"
+brew "pnpm"
 
 # Applications via Homebrew Cask
 cask "1password"
@@ -35,6 +36,7 @@ cask "discord"
 cask "tailscale"
 cask "linear-linear"
 cask "raycast"
+cask "font-fira-code-nerd-font"
 
 # Applications du Mac App Store (nécessite mas)
 mas "Xcode", id: 497799835

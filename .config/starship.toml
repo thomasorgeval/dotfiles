@@ -1,27 +1,77 @@
-# Starship configuration
+# Starship configuration - Version personnalisée
 format = """
 $directory\
 $git_branch\
+$git_status\
+$git_metrics\
 $package\
 $nodejs\
+$golang\
+$docker_context\
+$cmd_duration\
 $character"""
 
 [directory]
-truncation_length = 1
-truncation_symbol = "/"
+truncation_length = 0
+truncation_symbol = ""
+home_symbol = "🏠"
+read_only = "🔒"
+style = "cyan"
+format = "[/$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
-format = " on [$branch](bright-purple)"
+format = "[$symbol$branch]($style) "
+symbol = " "
+style = "purple"
+
+[git_commit]
+tag_symbol = '  '
 
 [git_status]
 disabled = true
+format = "[$all_status]($style) "
+style = "red"
+conflicted = "⚡"
+ahead = "⬆️${count}"
+behind = "⬇️${count}"
+diverged = "🔀"
+up_to_date = ""
+untracked = "❓ ${count}"
+stashed = "📦 ${count}"
+modified = "✏️ ${count}"
+staged = "✅ ${count}"
+renamed = "📝 ${count}"
+deleted = "🗑️ ${count}"
+
+[git_metrics]
+disabled = false
+format = "([+$added]($added_style))([-$deleted]($deleted_style) )"
 
 [package]
-format = " [$version](bright-green)"
+format = "[$symbol$version]($style) "
 display_private = true
 
+[gcloud]
+symbol = "  "
+
+[golang]
+symbol = " "
+
+[java]
+symbol = " "
+
 [nodejs]
-format = " via [$version](bright-blue)"
+
+[docker_context]
+format = "[$symbol$context]($style) "
+symbol = "🐳 "
+style = "cyan"
+only_with_files = true
+
+[cmd_duration]
+min_time = 2_000
+format = "⏱️[$duration]($style) "
+style = "yellow"
 
 [character]
 success_symbol = "[❯](purple)"

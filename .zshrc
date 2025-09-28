@@ -13,6 +13,9 @@ HISTSIZE=50000
 SAVEHIST=10000
 setopt sharehistory hist_ignore_all_dups hist_reduce_blanks
 
+# ----- 1Password SSH Agent -----
+export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
 # ----- NVM (Node Version Manager) -----
 export NVM_DIR="$HOME/.nvm"
 if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
@@ -68,3 +71,5 @@ alias gcl="git clone"
 # Outils
 alias k="kubectl"
 alias d="docker"
+alias pn="pnpm"
+alias sb="pnpm supabase"
