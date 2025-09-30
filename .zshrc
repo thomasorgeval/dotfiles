@@ -67,6 +67,7 @@ alias gcb="git checkout -b"
 alias gst="git stash"
 alias gstp="git stash pop"
 alias gcl="git clone"
+alias gup="git checkout main && git pull"
 
 # Outils
 alias k="kubectl"
