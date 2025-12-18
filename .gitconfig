@@ -18,3 +18,5 @@
 	gpgsign = true
 [push]
 	autoSetupRemote = true
+[core]
+	autocrlf = input

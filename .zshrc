@@ -47,7 +47,7 @@ eval "$(zoxide init zsh)"
 alias ll="ls -la"
 alias ..="cd .."
 alias ...="cd ../.."
-alias do="cd ~/Documents"
+alias doc="cd ~/Documents"
 alias dl="cd ~/Downloads"
 alias p="cd ~/projects"
 alias reload="source ~/.zshrc"
@@ -67,10 +67,12 @@ alias gcb="git checkout -b"
 alias gst="git stash"
 alias gstp="git stash pop"
 alias gcl="git clone"
-alias gup="git checkout main && git pull"
+alias gup='git checkout $(git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@") && git pull'
 
 # Outils
 alias k="kubectl"
 alias d="docker"
 alias pn="pnpm"
 alias sb="pnpm supabase"
+# Added by Antigravity
+export PATH="/Users/thomas/.antigravity/antigravity/bin:$PATH"
